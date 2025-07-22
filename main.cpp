@@ -7,11 +7,14 @@ int main() {
     fmt::print("Tente adivinhar o número entre 1 e 100.\n");
     fmt::print("Você tem 3 tentativas.\n");
     bool continuar = true;
-    int tentativas = 0;
-    int numeroAleatorio = std::rand() % 100 + 1; // Gera um número aleatório entre 1 e 100
+    int tentativas = 1;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<double> dis(1, 100);
+    int numeroAleatorio = dis(gen); // Gera um número aleatório entre 1 e 100
     while (continuar || tentativas < 3) {
         int palpite;
-        fmt::print("Tentativa de palpite: {} de 3\n", tentativas + 1);
+        fmt::print("Tentativa de palpite: {} de 3\n", tentativas);
         fmt::print("Digite seu palpite: ");
         std::cin >> palpite;
 
@@ -31,7 +34,8 @@ int main() {
             std::cin >> resposta;
             if (resposta == 's' || resposta == 'S') {
                 continuar = true;
-                tentativas = 0; // Reseta as tentativas
+                tentativas = 1; // Reseta as tentativas
+                numeroAleatorio = dis(gen);
             } else {
                 continuar = false; // Encerra o jogo
             }
