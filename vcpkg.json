@@ -1,0 +1,9 @@
+{
+  "name" : "jogo-advinhacao",
+  "version-string" : "1.0.0",
+  "builtin-baseline" : "4002e3abc6d3e468c73d2d9777a7dd96af5dc224",
+  "dependencies" : [ {
+    "name" : "fmt",
+    "version>=" : "11.0.2#1"
+  } ]
+}
