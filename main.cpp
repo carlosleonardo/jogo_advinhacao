@@ -11,7 +11,7 @@ int main() {
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_real_distribution<double> dis(1, 100);
-    int numeroAleatorio = dis(gen); // Gera um número aleatório entre 1 e 100
+    int numeroAleatorio = static_cast<int>(dis(gen)); // Gera um número aleatório entre 1 e 100
     while (continuar || tentativas < 3) {
         int palpite;
         fmt::print("Tentativa de palpite: {} de 3\n", tentativas);
@@ -35,7 +35,7 @@ int main() {
             if (resposta == 's' || resposta == 'S') {
                 continuar = true;
                 tentativas = 1; // Reseta as tentativas
-                numeroAleatorio = dis(gen);
+                numeroAleatorio = static_cast<int>(dis(gen));
             } else {
                 continuar = false; // Encerra o jogo
             }
