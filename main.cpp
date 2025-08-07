@@ -16,7 +16,12 @@ int main() {
         int palpite;
         fmt::print("Tentativa de palpite: {} de 3\n", tentativas);
         fmt::print("Digite seu palpite: ");
-        std::cin >> palpite;
+        if (!(std::cin >> palpite)) {
+            fmt::print("Entrada inválida! Por favor, insira um número.\n");
+            std::cin.clear(); // Limpa o estado de erro
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descarta a entrada inválida
+            continue; // Pede o palpite novamente
+        }
 
         if (palpite == numeroAleatorio) {
             fmt::print("Parabéns! Você adivinhou o número!\n");
