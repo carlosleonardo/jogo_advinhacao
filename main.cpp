@@ -4,13 +4,13 @@
 
 int main() {
     fmt::print("Jogo de Advinhação!\n");
-    fmt::print("Tente adivinhar o número entre 1 e 100.\n");
+    fmt::print("Tente adivinhar o número entre 1 e 20.\n");
     fmt::print("Você tem 3 tentativas.\n");
     bool continuar = true;
     int tentativas = 1;
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_real_distribution<double> dis(1, 100);
+    std::uniform_real_distribution<double> dis(1, 20);
     int numeroAleatorio = static_cast<int>(dis(gen)); // Gera um número aleatório entre 1 e 100
     while (continuar || tentativas < 3) {
         int palpite;
